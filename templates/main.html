@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acarsdec Monitor</title>
+    <link href="/static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body class="bg-dark text-light">
+    <div class="container-fluid cover-container d-flex flex-column" style="height: 100vh;">
+
+      <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Acarsdec Monitor</span>
+        <small><a class="text-light" href="https://github.com/mpsparrow">Created by mattthetechguy</a></small>
+      </nav>
+
+      <div class="row  flex-fill overflow-auto">
+        <div class="col-12">
+          {% for i in range(10) %}
+          <div class="bg-secondary p-1 border">
+            {{ i }}
+          </div>
+          {%  endfor %}
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
