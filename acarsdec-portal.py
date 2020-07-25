@@ -1,16 +1,23 @@
-import json
-from flask import json, Flask, render_template
+from flask import Flask, render_template
 import sqlite3
+from datetime import datetime
 
 app = Flask(__name__)
 
-def write_json(data, filename='data.json'): 
-    with open(filename,'w') as f: 
-        json.dump(data, f, indent=4) 
-
 @app.route('/')
 def main():
-    return render_template("main.html")
+    conn = sqlite3.connect('acars.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM acarsTest")
+    data = c.fetchall()
+
+    dates = []
+
+    for item in data:
+        x = datetime.fromtimestamp(float(item[0]))
+        dates.append(x.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])
+
+    return render_template("main.html", data=data, dates=dates)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

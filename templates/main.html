@@ -16,11 +16,16 @@
 
       <div class="row  flex-fill overflow-auto">
         <div class="col-12">
-          {% for i in range(10) %}
+          {% for entry in range(data|length) %}
           <div class="bg-secondary p-1 border">
-            {{ i }}
+            <tr>
+              <td>{{dates[entry]}}</td>
+              {% for x in range(1, 16) %}
+              <td>{{data[entry][x]}}</td>
+              {% endfor %}
+            </tr>
           </div>
-          {%  endfor %}
+          {% endfor %}
         </div>
       </div>
 
