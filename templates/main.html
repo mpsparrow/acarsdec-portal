@@ -11,7 +11,7 @@
 
       <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Acarsdec Monitor</span>
-        <small><a class="text-light" href="https://github.com/mpsparrow">Created by mattthetechguy</a></small>
+        <!-- <small><a class="text-light" href="https://github.com/mpsparrow">Created by mattthetechguy</a></small> -->
       </nav>
 
       <div class="row  flex-fill overflow-auto">
@@ -20,7 +20,8 @@
           <div class="bg-secondary p-1 border">
             <tr>
               <td>{{dates[entry]}}</td>
-              {% for x in range(1, 16) %}
+              <td>({{data[entry][1]}} {{data[entry][2]}}:{{data[entry][3]}})</td>
+              {% for x in range(4, 16) %}
               <td>{{data[entry][x]}}</td>
               {% endfor %}
             </tr>

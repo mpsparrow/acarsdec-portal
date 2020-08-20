@@ -8,7 +8,7 @@ app = Flask(__name__)
 def main():
     conn = sqlite3.connect('acars.db')
     c = conn.cursor()
-    c.execute("SELECT * FROM acarsTest")
+    c.execute("SELECT * FROM acarsTest ORDER BY date DESC;")
     data = c.fetchall()
 
     dates = []
